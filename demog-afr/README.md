@@ -6,7 +6,9 @@ modeling for the KS paper
 First, the VCF files were subset using `bcftools` and phased using `SHAPEIT5` (AR add).
 
 
-Then, `tsinfer` and `tsdate` were applied to create tree sequence format data (JH add).
+Then, `tsinfer` and `tsdate` were applied to create tree sequence format data.
+All VCF-files were processed the same way. For `tsinfer` and `tsdate`, a recombination rate of 1.e-8 and a mutation rate of 1.2e-8 was assumed. The ancestral allele was read off from the ancestral allele FASTA files mapped to the GRCh38 human genome reference assembly (homo_sapiens_ancestor_GRCh38).
+A python class for the application of `tsinfer` and `tsdate` was implemented as shown in `preprocessing/tsinfer/InterTskit.py`. A wrapper for this class and the corresponding submission script can be found in `preprocessing/tsinfer/runInferTskit.py` and `preprocessing/tsinfer/tsinferRun.sh`, respectively.
 
 
 Filtering for high-quality sites across individuals was performed on the all-sites VCF files, subsetting to individuals of interest, using `bcftools`, as shown in the script `preprocessing/aks_filtering.sh`.
