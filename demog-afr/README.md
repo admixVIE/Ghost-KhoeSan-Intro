@@ -3,7 +3,7 @@ modeling for the KS paper
 
 ## Pre-processing real data
 
-First, the VCF files were subset using `bcftools` and phased using `SHAPEIT5` (AR add).
+First, the genotypes were phased using `SHAPEIT5`v.5.1.1, then subset and converted from BCF to VCF format using `bcftools`v.1.24.
 
 
 Then, `tsinfer` and `tsdate` were applied to create tree sequence format data.
